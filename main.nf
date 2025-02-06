@@ -9,8 +9,10 @@ process sayHello {
   output:
     stdout
   script:
+  def args = task.ext.args ?: ''
+
     """
-    echo '$x world!'
+    echo '$args $x world!'
     wc $index
     """
 }
